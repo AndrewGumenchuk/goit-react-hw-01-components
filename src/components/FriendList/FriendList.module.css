@@ -31,7 +31,8 @@
 
 .offline {
   composes: status;
-  background-color: blue
+  background-color: blue;
+}
 .avatar {
   border-radius: 4px;
   margin-right: 14px;
