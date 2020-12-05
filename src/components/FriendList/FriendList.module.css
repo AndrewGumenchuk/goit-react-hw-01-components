@@ -25,11 +25,13 @@
 }
 
 .online {
-  background-color: red;
+  composes: status;
+  background-color: green;
 }
 
 .offline {
-  background-color: blue;
+  composes: status;
+  background-color: red;
 }
 .avatar {
   border-radius: 4px;
