@@ -1,3 +1,4 @@
+import FriendListItem from "./FriendListItem";
 import s from "./FriendList.module.css";
 
 const FriendList = ({ friends }) => {
@@ -9,6 +10,7 @@ const FriendList = ({ friends }) => {
 
       <ul className={s.container}>
         {friends.map((item) => (
+          
           <li className={s.item} key={item.id}>
             
               <span className={isOnline ? s.online:s.offline}/>
