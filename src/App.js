@@ -1,39 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import user from './components/Profile/user.json';
+import Profile from './components/Profile/Profile';
 
-import Container from "./components/Container/Container";
+import statisticalData from './components/Statistics/statistical-data.json';
+import Statistics from './components/Statistics/Statistics';
 
-import Profile from "./components/Profile/Profile";
-import userData from "./user.json";
+import friends from './components/FriendList/friends.json';
+import FriendList from './components/FriendList/FriendList';
 
-import Statistics from "./components/Statistics/Statistics";
-import statisticalData from "./statistical-data.json";
+import transactions from './components/TransactionHistory/transactions.json';
+import TransactionHistory from './components/TransactionHistory/TransactionHistory';
 
-import FriendList from "./components/FriendList/FriendList";
-import friends from "./friends.json";
-
-import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
-import transactions from "./transactions.json";
-
-function App() {
+export default function App() {
   return (
-
-    <Container>
+    <div>
+      {/* 1 задача */}
       <Profile
-        avatar={userData.avatar}
-        name={userData.name}
-        tag={userData.tag}
-        location={userData.location}
-        stats={userData.stats}
+        name={user.name}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
       />
-
-      <Statistics statsData={statisticalData} title="Upload stats" />
-
+      {/* 2 задача */}
+      <Statistics title="Upload stats" stats={statisticalData} />
+      <Statistics stats={statisticalData} />
+      {/* 3 задача */}
       <FriendList friends={friends} />
-
-      <TransactionHistory transactions={transactions} />
-    </Container>
+      {/* 4 задача */}
+      <TransactionHistory items={transactions} />
+    </div>
   );
 }
-
-export default App;

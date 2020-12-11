@@ -1,32 +1,31 @@
-import FriendListItem from "./FriendListItem";
-import s from "./FriendList.module.css";
+import FriendListItem from './FriendListItem';
+import PropTypes from 'prop-types';
+import s from './FriendList.module.css';
 
-const FriendList = ({ friends }) => {
+function FriendList({ friends }) {
   return (
-    <div className="taskContainer">
-      <h2 className="taskTitle">
-        Завдання 3<span>Список друзів</span>
-      </h2>
-
-      <ul className={s.container}>
-        {friends.map((item) => (
-          
-          <li className={s.item} key={item.id}>
-            
-              <span className={isOnline ? s.online:s.offline}/>
-          
-            <img
-              className={s.avatar}
-              src={item.avatar}
-              alt={item.name + " avatar"}
-              width="48"
-            />
-            <p className={s.name}>{item.name} </p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="friend-list">
+      {friends.map(friend => (
+        <li className={s.item} key={friend.id}>
+          <FriendListItem
+            isOnline={friend.isOnline}
+            avatar={friend.avatar}
+            name={friend.name}
+          />
+        </li>
+      ))}
+    </ul>
   );
+}
+
+
+
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  ),
 };
 
 export default FriendList;
